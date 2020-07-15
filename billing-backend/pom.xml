@@ -9,9 +9,7 @@
 		<version>0.0.1-SNAPSHOT</version>	
 	</parent>
 	
-	<groupId>at.frebort.billing</groupId> 
 	<artifactId>billing-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>	
 	<name>Billing System Backend</name>
 	
 	<dependencies>
