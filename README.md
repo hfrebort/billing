@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/hfrebort/billing/workflows/Java%20CI%20with%20Maven/badge.svg?event=push)
+
 # billing
 A billing system
 - Administer customer data
@@ -6,5 +8,3 @@ A billing system
 - Export for accounting
 
 This is a project is developed by students of the HTLWrN 
-
-![Java CI with Maven](https://github.com/hfrebort/billing/workflows/Java%20CI%20with%20Maven/badge.svg?event=push)
