@@ -1,3 +1,5 @@
+![Java CI with Maven](https://github.com/hfrebort/billing/workflows/Java%20CI%20with%20Maven/badge.svg?event=push)
+
 # billing
 A billing system
 - Administer customer data
