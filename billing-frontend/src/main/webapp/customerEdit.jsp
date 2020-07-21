@@ -127,7 +127,8 @@
       <td colspan="4"> <div class="form-group">
         <label for="exampleFormControlTextarea1">Bemerkungen:</label>
          <textarea class="form-control" id="remark" rows="5"></textarea>
-      </div> </td>
+      </div> 
+      </td>
     </tr>
   </tbody>
 
