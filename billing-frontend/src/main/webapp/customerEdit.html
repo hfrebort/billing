@@ -17,7 +17,6 @@
 <title>Billing</title>
 </head>
 <body>
-	<jsp:include page="navigation.jsp"></jsp:include>
 	<div class="jumbotron">
 		<h1 class="lead">Haupt&uuml;bersicht</h1>
 		<p>Hier k&ouml;nnten die zuletzt erfassten Eintr&auml;ge
@@ -25,20 +24,22 @@
 			
 		<div class="row">
 			<div class="col-sm">
-				<div class="table-responsive" data-ng-controller="CustomerController as ctrl">
-					<table class="table table-striped"">
-						<tr>
-							<th>Kundennummer</th>
-							<th>Vorname</th>
-							<th>Nachname</th>
-						</tr>
-
-						<tr data-ng-repeat="customer in customers">
-							<td data-title='Kundennummer'>{{customer.customerId}}</td>
-							<td data-title='Vorname'>{{customer.firstName}}</td>
-							<td data-title='Nachname'>{{customer.lastName}}</td>
-						</tr>
-					</table>
+				<div data-ng-controller="CustomerController as ctrl">
+					Kundennummer:
+					<input name="customerId" data-ng-model="customer.customerId" />
+					Vorname:
+					<input name="firstName" data-ng-model="customer.firstName" />
+					
+					Email:
+					<input name="email1" data-ng-model="customer.eamil1" type="email" />
+					
+					
+					<div>
+					Die ID:	{{customer.customerId}}
+					Vorname:	{{customer.firstName}}
+					</div>
+					<button type="submit" data-ng-click="ctrl.insert()" >Einfügen</button>
+					<button type="submit" data-ng-click="ctrl.update()" data-ng-disable="customer.firstName.$dirty" >Speichern</button>
 				</div>
 			</div>
 		</div>
