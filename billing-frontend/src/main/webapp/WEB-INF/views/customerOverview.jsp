@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
@@ -16,7 +17,7 @@
 <title>Kundendaten</title>
 </head>
 <body>
-	<jsp:include page="/navigation.jsp"></jsp:include>
+	<jsp:include page="navigation.jsp"></jsp:include>
 
 	<div class="jumbotron">
 		<h1 class="lead">&Uuml;bersicht Kundendaten</h1>

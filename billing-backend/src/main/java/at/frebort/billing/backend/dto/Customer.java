@@ -1,7 +1,12 @@
 package at.frebort.billing.backend.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Customer {
 
+    @Id
     private int customerId;
 
     private String firstName;
