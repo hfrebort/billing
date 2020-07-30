@@ -38,7 +38,7 @@
   <tbody>
     <tr>
       <td> Firma: *  </td>
-      <td> <input id="company" class="form-control" type="text" data-ng-model="customer.company" placeholder="Firma"> </td>
+      <td> <input id="company" class="form-control" type="text" data-ng-model="customer.company" placeholder="Firma" data-ng-required ="true"> </td>
       <td> Mobilnummer 2: </td>
       <td> <input id="mobileAlternative" class="form-control" type="text" data-ng-model="customer.mobileAlternative" placeholder="Mobil2"> </td>
     </tr>
@@ -54,7 +54,7 @@
     <tbody>
     <tr>
       <td> Adresse: *  </td>
-      <td> <input id="address" class="form-control" type="text" data-ng-model="customer.address" placeholder="Adresse"> </td>
+      <td> <input id="address" class="form-control" type="text" data-ng-model="customer.address" placeholder="Adresse" data-ng-required ="true"> </td>
       <td> Email-Adresse: </td>
       <td> <input id="emailAlternative" class="form-control" type="text" data-ng-model="customer.emailAlternative" placeholder="Email2"> </td>
     </tr>
@@ -62,7 +62,7 @@
     <tbody>
     <tr>
       <td> Postleitzahl: *  </td>
-      <td> <input id="zipCode" class="form-control" type="text" data-ng-model="customer.zipCode" placeholder="PLZ"> </td>
+      <td> <input id="zipCode" class="form-control" type="text" data-ng-model="customer.zipCode" placeholder="PLZ" data-ng-required ="true"> </td>
       <td> Homepage: </td>
       <td> <input id="website" class="form-control" type="text" data-ng-model="customer.website" placeholder="Homepage"> </td>
     </tr>
@@ -70,7 +70,7 @@
     <tbody>
     <tr>
       <td> Ort: *  </td>
-      <td> <input id="city" class="form-control" type="text" data-ng-model="customer.city" placeholder="Ort"> </td>
+      <td> <input id="city" class="form-control" type="text" data-ng-model="customer.city" placeholder="Ort" data-ng-required ="true"> </td>
       <td> Versicherung: </td>
       <td> <input id="insurance" class="form-control" type="text" data-ng-model="customer.insurace" placeholder="Versicherung"> </td>
     </tr>
