@@ -9,4 +9,5 @@ public class BillingApplication {
     public static void main(final String[] args) {
         SpringApplication.run(BillingApplication.class, args);
     }
+    
 }

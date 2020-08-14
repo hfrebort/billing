@@ -1,4 +1,4 @@
-drop table customer;
+drop table if exists customer;
 
 create table if not exists customer (
 	customerId integer primary key,

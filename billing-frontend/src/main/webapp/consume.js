@@ -2,8 +2,18 @@ angular.module('billing', [])
 .controller('CustomerController', function($scope, $http) {
 	
 	console.log("initialize controller");
-	$scope.customers = [{"customerId":3,"firstName":"Paul","lastName":"Kafka"},{"customerId":4,"firstName":"Harald","lastName":"Frebort"}];
-	// $scope.customer = {"customerId":3,"firstName":"Paul","lastName":"Kafka"};
+	//$scope.customers = [{"customerId":3,"firstName":"Paul","lastName":"Kafka"},{"customerId":4,"firstName":"Harald","lastName":"Frebort"}];
+	
+   this.getAll = function() { 
+		$http.get('http://localhost:8080/customers').then(function(response) {
+	    	console.log("done: ", response);
+	        $scope.customers = response.data;
+		});
+	};
+	
+	
+	
+	$scope.customer = this.getAll();
 	
 	$http.get('http://localhost:8080/customer/' + 3).then(function(response) {
     	console.log("done: ", response);
@@ -27,10 +37,5 @@ angular.module('billing', [])
 		
 	};
 
-	this.getAll = function() { 
-		$http.get('http://localhost:8080/customers').then(function(response) {
-	    	console.log("done: ", response);
-	        $scope.customers = response.data;
-		});
-	};
+
 });
