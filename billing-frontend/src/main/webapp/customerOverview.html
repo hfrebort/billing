@@ -1,0 +1,19 @@
+		<div class="row">
+			<div class="col-sm">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th>Kundennummer</th>
+							<th>Vorname</th>
+							<th>Nachname</th>
+						</tr>
+	
+						<tr data-ng-repeat="customer in customers">
+							<td data-title='Kundennummer'>{{customer.customerId}}</td>
+							<td data-title='Vorname'>{{customer.firstName}}</td>
+							<td data-title='Nachname'>{{customer.lastName}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>

@@ -1,26 +1,27 @@
-angular.module('billing', [])
+angular.module('billing', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
+    when('/customerOverview',{
+        templateUrl : '/customerOverview.html',
+        controller: 'CustomerController'
+    }).
+    when("/customerEdit", {
+        templateUrl: '/customerEdit.html',
+        controller: 'CustomerController'
+    }).
+    otherwise({
+    	redirectTo: '/customerOverview'
+    });
+}])
 .controller('CustomerController', function($scope, $http) {
-	
-	console.log("initialize controller");
-	//$scope.customers = [{"customerId":3,"firstName":"Paul","lastName":"Kafka"},{"customerId":4,"firstName":"Harald","lastName":"Frebort"}];
-	
-   this.getAll = function() { 
+    
+    this.getAll = function() { 
 		$http.get('http://localhost:8080/customers').then(function(response) {
 	    	console.log("done: ", response);
 	        $scope.customers = response.data;
 		});
 	};
-	
-	
-	
-	$scope.customer = this.getAll();
-	
-	$http.get('http://localhost:8080/customer/' + 3).then(function(response) {
-    	console.log("done: ", response);
-        $scope.customer = response.data;
-	});
-	
-	
+		
 	this.insert = function() {
 		console.log("Das ist der customer: ", $scope.customer);
 		
@@ -37,5 +38,7 @@ angular.module('billing', [])
 		
 	};
 
+    console.log("initialize controller");
+    $scope.customer = this.getAll();
 
 });

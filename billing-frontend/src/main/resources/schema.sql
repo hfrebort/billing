@@ -6,6 +6,8 @@ create table if not exists customer (
 	lastName varchar(255)
 );
 
+drop table if exists invoice;
+
 create table if not exists invoice (
 	invoiceId integer primary key,
 	price float
