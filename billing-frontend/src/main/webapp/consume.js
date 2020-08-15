@@ -3,11 +3,13 @@ angular.module('billing', ['ngRoute'])
     $routeProvider.
     when('/customerOverview',{
         templateUrl : '/customerOverview.html',
-        controller: 'CustomerController'
+        controller: 'CustomerController',
+       	controllerAs: 'ctrl'
     }).
     when("/customerEdit", {
         templateUrl: '/customerEdit.html',
-        controller: 'CustomerController'
+        controller: 'CustomerController',
+        controllerAs: 'ctrl'
     }).
     otherwise({
     	redirectTo: '/customerOverview'
@@ -23,7 +25,7 @@ angular.module('billing', ['ngRoute'])
 	};
 		
 	this.insert = function() {
-		console.log("Das ist der customer: ", $scope.customer);
+		console.log("insert customer: ", $scope.customer);
 		
 		$http.post('http://localhost:8080/customer', $scope.customer).then(function(response) {
 	    	console.log("saved: ", response);
@@ -32,6 +34,8 @@ angular.module('billing', ['ngRoute'])
 	};
 	
 	this.update = function() {
+		console.log("update customer: ", $scope.customer);
+		
 		$http.put('http://localhost:8080/customer', $scope.customer).then(function(response) {
 	    	console.log("saved: ", response);
 	    });
