@@ -11,6 +11,11 @@ angular.module('billing', ['ngRoute'])
         controller: 'CustomerEditController',
         controllerAs: 'ctrl'
     }).
+    when("/migrate", {
+    	templateUrl: '/migration.html',
+    	controller: 'MigrationController',
+    	controllerAs: 'ctrl'
+    }).
     otherwise({
     	redirectTo: '/customerOverview'
     });
@@ -64,4 +69,17 @@ angular.module('billing', ['ngRoute'])
     	this.get($routeParams.customerId);
     }
 
+})
+.controller('MigrationController', function($scope, $http) {
+	
+	this.migrate = function() { 
+		$http.get('http://localhost:8080/migrate').then(function(response) {
+			console.log("done: ", response);
+			$scope.statistics = response.data;
+		});
+	};
+	
+	console.log("initialize migration controller");
+	this.migrate();
+	
 });

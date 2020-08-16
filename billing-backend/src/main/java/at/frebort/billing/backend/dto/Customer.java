@@ -6,204 +6,205 @@ import javax.persistence.Id;
 @Entity
 public class Customer {
 
-    @Id
-    private int customerId;
+   @Id
+   private int customerId;
 
-    private String firstName;
+   private String firstName;
 
-    private String lastName;
-    
-    private String company, companyExtension, address, zipCode, city, region,
-                   salutation, title, phone, mobile, mobileAlternative,
-                   email, emailAlternative, website, insurance, vatNumber,
-                   paymentDate, reminderLock, archived, remark;
-    
-    
-    
-    public int getCustomerId() {
-        return this.customerId;
-    }
+   private String lastName;
 
-    public void setCustomerId(final int customerId) {
-        this.customerId = customerId;
-    }
+   private String company, companyExtension, address, zipCode, city, region,
+         salutation, title, phone, mobile, mobileAlternative,
+         email, emailAlternative, website, insurance, vatNumber,
+         paymentDate, reminderLock, archived, remark;
 
-    public String getFirstName() {
-        return this.firstName;
-    }
+   public int getCustomerId() {
+      return this.customerId;
+   }
 
-    public void setFirstName(final String firstName) {
-        this.firstName = firstName;
-    }
+   public void setCustomerId(final int customerId) {
+      this.customerId = customerId;
+   }
 
-    public String getLastName() {
-        return this.lastName;
-    }
+   public String getFirstName() {
+      return this.firstName;
+   }
 
-    public void setLastName(final String lastName) {
-        this.lastName = lastName;
-    }
+   public void setFirstName(final String firstName) {
+      this.firstName = firstName;
+   }
 
-	public String getCompany() {
-		return company;
-	}
+   public String getLastName() {
+      return this.lastName;
+   }
 
-	public void setCompany(String company) {
-		this.company = company;
-	}
+   public void setLastName(final String lastName) {
+      this.lastName = lastName;
+   }
 
-	public String getCompanyExtension() {
-		return companyExtension;
-	}
+   public String getCompany() {
+      return this.company;
+   }
 
-	public void setCompanyExtension(String companyExtension) {
-		this.companyExtension = companyExtension;
-	}
+   public void setCompany(final String company) {
+      this.company = company;
+   }
 
-	public String getAddress() {
-		return address;
-	}
+   public String getCompanyExtension() {
+      return this.companyExtension;
+   }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+   public void setCompanyExtension(final String companyExtension) {
+      this.companyExtension = companyExtension;
+   }
 
-	public String getZipCode() {
-		return zipCode;
-	}
+   public String getAddress() {
+      return this.address;
+   }
 
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
+   public void setAddress(final String address) {
+      this.address = address;
+   }
 
-	public String getCity() {
-		return city;
-	}
+   public String getZipCode() {
+      return this.zipCode;
+   }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+   public void setZipCode(final String zipCode) {
+      this.zipCode = zipCode;
+   }
 
-	public String getRegion() {
-		return region;
-	}
+   public String getCity() {
+      return this.city;
+   }
 
-	public void setRegion(String region) {
-		this.region = region;
-	}
+   public void setCity(final String city) {
+      this.city = city;
+   }
 
-	public String getSalutation() {
-		return salutation;
-	}
+   public String getRegion() {
+      return this.region;
+   }
 
-	public void setSalutation(String salutation) {
-		this.salutation = salutation;
-	}
+   public void setRegion(final String region) {
+      this.region = region;
+   }
 
-	public String getTitle() {
-		return title;
-	}
+   public String getSalutation() {
+      return this.salutation;
+   }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+   public void setSalutation(final String salutation) {
+      this.salutation = salutation;
+   }
 
-	public String getPhone() {
-		return phone;
-	}
+   public String getTitle() {
+      return this.title;
+   }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+   public void setTitle(final String title) {
+      this.title = title;
+   }
 
-	public String getMobile() {
-		return mobile;
-	}
+   public String getPhone() {
+      return this.phone;
+   }
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
+   public void setPhone(final String phone) {
+      this.phone = phone;
+   }
 
-	public String getMobileAlternative() {
-		return mobileAlternative;
-	}
+   public String getMobile() {
+      return this.mobile;
+   }
 
-	public void setMobileAlternative(String mobileAlternative) {
-		this.mobileAlternative = mobileAlternative;
-	}
+   public void setMobile(final String mobile) {
+      this.mobile = mobile;
+   }
 
-	public String getEmail() {
-		return email;
-	}
+   public String getMobileAlternative() {
+      return this.mobileAlternative;
+   }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+   public void setMobileAlternative(final String mobileAlternative) {
+      this.mobileAlternative = mobileAlternative;
+   }
 
-	public String getEmailAlternative() {
-		return emailAlternative;
-	}
+   public String getEmail() {
+      return this.email;
+   }
 
-	public void setEmailAlternative(String emailAlternative) {
-		this.emailAlternative = emailAlternative;
-	}
+   public void setEmail(final String email) {
+      this.email = email;
+   }
 
-	public String getWebsite() {
-		return website;
-	}
+   public String getEmailAlternative() {
+      return this.emailAlternative;
+   }
 
-	public void setWebsite(String website) {
-		this.website = website;
-	}
+   public void setEmailAlternative(final String emailAlternative) {
+      this.emailAlternative = emailAlternative;
+   }
 
-	public String getInsurance() {
-		return insurance;
-	}
+   public String getWebsite() {
+      return this.website;
+   }
 
-	public void setInsurance(String insurance) {
-		this.insurance = insurance;
-	}
+   public void setWebsite(final String website) {
+      this.website = website;
+   }
 
-	public String getVatNumber() {
-		return vatNumber;
-	}
+   public String getInsurance() {
+      return this.insurance;
+   }
 
-	public void setVatNumber(String vatNumber) {
-		this.vatNumber = vatNumber;
-	}
+   public void setInsurance(final String insurance) {
+      this.insurance = insurance;
+   }
 
-	public String getPaymentDate() {
-		return paymentDate;
-	}
+   public String getVatNumber() {
+      return this.vatNumber;
+   }
 
-	public void setPaymentDate(String paymentDate) {
-		this.paymentDate = paymentDate;
-	}
+   public void setVatNumber(final String vatNumber) {
+      this.vatNumber = vatNumber;
+   }
 
-	public String getReminderLock() {
-		return reminderLock;
-	}
+   public String getPaymentDate() {
+      return this.paymentDate;
+   }
 
-	public void setReminderLock(String reminderLock) {
-		this.reminderLock = reminderLock;
-	}
+   public void setPaymentDate(final String paymentDate) {
+      this.paymentDate = paymentDate;
+   }
 
-	public String getArchived() {
-		return archived;
-	}
+   public String getReminderLock() {
+      return this.reminderLock;
+   }
 
-	public void setArchived(String archived) {
-		this.archived = archived;
-	}
+   public void setReminderLock(final String reminderLock) {
+      this.reminderLock = reminderLock;
+   }
 
-	public String getRemark() {
-		return remark;
-	}
+   public String getArchived() {
+      return this.archived;
+   }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+   public void setArchived(final String archived) {
+      this.archived = archived;
+   }
 
-    
-    
+   public String getRemark() {
+      return this.remark;
+   }
+
+   public void setRemark(final String remark) {
+      this.remark = remark;
+   }
+
+   @Override
+   public String toString() {
+      return "Customer [customerId=" + this.customerId + ", firstName=" + this.firstName + ", lastName=" + this.lastName + "]";
+   }
+
 }

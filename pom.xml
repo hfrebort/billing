@@ -14,6 +14,7 @@
 	<modules>
 		<module>billing-frontend</module>
 		<module>billing-backend</module>
+		<module>billing-load</module>
 	</modules>
 
 	<properties>
@@ -114,8 +115,5 @@
 
 		</dependencies>
 	</dependencyManagement>
-
-
-	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
 
 </project>
