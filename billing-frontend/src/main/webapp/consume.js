@@ -3,19 +3,19 @@ angular.module('billing', ['ngRoute'])
     $routeProvider.
     when('/customerOverview',{
         templateUrl : '/customerOverview.html',
-        controller: 'CustomerController',
+        controller: 'CustomerOverviewController',
        	controllerAs: 'ctrl'
     }).
-    when("/customerEdit", {
+    when("/customerEdit/:customerId", {
         templateUrl: '/customerEdit.html',
-        controller: 'CustomerController',
+        controller: 'CustomerEditController',
         controllerAs: 'ctrl'
     }).
     otherwise({
     	redirectTo: '/customerOverview'
     });
 }])
-.controller('CustomerController', function($scope, $http) {
+.controller('CustomerOverviewController', function($scope, $http, $location) {
     
     this.getAll = function() { 
 		$http.get('http://localhost:8080/customers').then(function(response) {
@@ -23,7 +23,22 @@ angular.module('billing', ['ngRoute'])
 	        $scope.customers = response.data;
 		});
 	};
-		
+
+    console.log("initialize overview controller");
+    this.getAll();
+
+})
+.controller('CustomerEditController', function($scope, $http, $location, $routeParams) {
+    
+	this.get = function(customerId) {
+		$http.get('http://localhost:8080/customer/' + customerId).then(function(response) {
+	    	console.log("get: ", response);
+	        $scope.customer = response.data;
+		}, function(response) {
+	    	console.log("get failed: ", response);
+	        $scope.customer = {customerId: 1};
+		});
+	};
 	this.insert = function() {
 		console.log("insert customer: ", $scope.customer);
 		
@@ -42,7 +57,11 @@ angular.module('billing', ['ngRoute'])
 		
 	};
 
-    console.log("initialize controller");
-    $scope.customer = this.getAll();
+    console.log("initialize edit controller");
+    if ($routeParams.customerId === 'new') {
+        $scope.customer = {customerId: 111};
+    } else {
+    	this.get($routeParams.customerId);
+    }
 
 });
