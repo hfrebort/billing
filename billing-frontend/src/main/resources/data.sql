@@ -1,2 +1,2 @@
-insert into customer values (3, 'Paul', 'Kafka');
-insert into customer values (4, 'Harald', 'Frebort');
+insert into customer (customer_id, first_name, last_name) values (1, 'Paul', 'Kafka');
+insert into customer (customer_id, first_name, last_name) values (2, 'Harald', 'Frebort');
