@@ -11,7 +11,7 @@
  ** CNS-Solutions & Support GmbH, Austria. The program(s) shall not be used
  ** and/or copied without the written permission of CNS-Solutions & Support GmbH.
  *******************************************************************************/
-package at.frebort.billing.load.mapper;
+package at.frebort.billing.backend.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -14,7 +14,6 @@
 	<modules>
 		<module>billing-frontend</module>
 		<module>billing-backend</module>
-		<module>billing-load</module>
 	</modules>
 
 	<properties>

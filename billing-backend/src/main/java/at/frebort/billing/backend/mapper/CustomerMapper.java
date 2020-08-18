@@ -14,7 +14,6 @@
 package at.frebort.billing.backend.mapper;
 
 import at.frebort.billing.backend.dto.Customer;
-import at.frebort.billing.load.mapper.Mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

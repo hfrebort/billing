@@ -11,9 +11,9 @@
  ** CNS-Solutions & Support GmbH, Austria. The program(s) shall not be used
  ** and/or copied without the written permission of CNS-Solutions & Support GmbH.
  *******************************************************************************/
-package at.frebort.billing.load.dao;
+package at.frebort.billing.backend.dao;
 
-import at.frebort.billing.load.mapper.Mapper;
+import at.frebort.billing.backend.mapper.Mapper;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
