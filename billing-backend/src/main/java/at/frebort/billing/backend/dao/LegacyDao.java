@@ -26,7 +26,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class LegacyDao.
  *
@@ -40,7 +39,7 @@ public class LegacyDao<E> {
    private static final Logger LOGGER = LoggerFactory.getLogger(LegacyDao.class);
 
    /** The Constant DATABASE_URL. */
-   private static final String DATABASE_URL = "jdbc:ucanaccess://..//billing-load//src//main//resources//KuchlerBMD.mdb";
+   private static final String DATABASE_URL = "jdbc:ucanaccess://.//src//main//resources//KuchlerBMD.mdb";
    // TODO use mdb file as a parameter
 
    /** The mapper. */
@@ -61,13 +60,22 @@ public class LegacyDao<E> {
     * @param entityName the entity name
     * @return the list
     */
-   public List<E> load(final String entityName) {
+   public List<E> loadEntity(final String entityName) {
+      return this.executeQuery("select * from " + entityName);
+   }
 
+   /**
+    * Execute query.
+    *
+    * @param sqlStatement the sql statement
+    * @return the list
+    */
+   public List<E> executeQuery(final String sqlStatement) {
       final List<E> entries = new ArrayList<>(50);
 
       try (final Connection connection = DriverManager.getConnection(DATABASE_URL);
             final Statement statement = connection.createStatement();
-            final ResultSet result = statement.executeQuery("select * from " + entityName)) {
+            final ResultSet result = statement.executeQuery(sqlStatement)) {
 
          while (result.next()) {
             final E entity = this.mapper.map(result);
@@ -75,9 +83,10 @@ public class LegacyDao<E> {
             LOGGER.info("Mapped: {}", entity);
          }
       } catch (final SQLException ex) {
-         LOGGER.error("Failed {} cause {}", entityName, ex.getMessage());
+         LOGGER.error("Failed {} cause {}", sqlStatement, ex.getMessage());
       }
 
       return entries;
    }
+
 }

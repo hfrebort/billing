@@ -27,16 +27,16 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>net.sf.ucanaccess</groupId>
+			<artifactId>ucanaccess</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>at.frebort.billing</groupId>
-			<artifactId>billing-load</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>

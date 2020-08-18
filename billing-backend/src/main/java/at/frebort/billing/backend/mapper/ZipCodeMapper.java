@@ -18,13 +18,16 @@ import at.frebort.billing.backend.dto.ZipCodeData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Component;
+
 /**
  * The Class PostalMapper.
  *
  * @author hfrebort
  * @version 18.08.2020
  */
-public class PostalMapper implements Mapper<ZipCodeData> {
+@Component
+public class ZipCodeMapper implements Mapper<ZipCodeData> {
 
    /**
     * Map.
