@@ -1,22 +1,22 @@
 angular.module('billing', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-    when('/customerOverview',{
-        templateUrl : '/customerOverview.html',
+    $routeProvider
+    .when('/customerOverview',{
+        templateUrl: '/customerOverview.html',
         controller: 'CustomerOverviewController',
        	controllerAs: 'ctrl'
-    }).
-    when("/customerEdit/:customerId", {
+    })
+    .when("/customerEdit/:customerId", {
         templateUrl: '/customerEdit.html',
         controller: 'CustomerEditController',
         controllerAs: 'ctrl'
-    }).
-    when("/migrate", {
+    })
+    .when("/migrate", {
     	templateUrl: '/migration.html',
     	controller: 'MigrationController',
     	controllerAs: 'ctrl'
-    }).
-    otherwise({
+    })
+    .otherwise({
     	redirectTo: '/customerOverview'
     });
 }])
@@ -36,7 +36,7 @@ angular.module('billing', ['ngRoute'])
 .controller('CustomerEditController', function($scope, $http, $location, $routeParams) {
     
 	this.get = function(customerId) {
-		$http.get('http://localhost:8080/customer/' + customerId).then(function(response) {
+		$http.get('http://localhost:8080/customers/' + customerId).then(function(response) {
 	    	console.log("get: ", response);
 	        $scope.customer = response.data;
 		}, function(response) {
@@ -47,7 +47,7 @@ angular.module('billing', ['ngRoute'])
 	this.insert = function() {
 		console.log("insert customer: ", $scope.customer);
 		
-		$http.post('http://localhost:8080/customer', $scope.customer).then(function(response) {
+		$http.post('http://localhost:8080/customers', $scope.customer).then(function(response) {
 	    	console.log("saved: ", response);
 	    });
 		
@@ -56,7 +56,7 @@ angular.module('billing', ['ngRoute'])
 	this.update = function() {
 		console.log("update customer: ", $scope.customer);
 		
-		$http.put('http://localhost:8080/customer', $scope.customer).then(function(response) {
+		$http.put('http://localhost:8080/customers', $scope.customer).then(function(response) {
 	    	console.log("saved: ", response);
 	    });
 		
@@ -68,7 +68,10 @@ angular.module('billing', ['ngRoute'])
     } else {
     	this.get($routeParams.customerId);
     }
-
+    $scope.zipCodes = [
+    		{code: "2483", city: "Ebreichsdorf"},
+    		{code: "9999", city: "Unknown"}
+    ];
 })
 .controller('MigrationController', function($scope, $http) {
 	

@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 16.08.2020
  */
 @RestController
-public class MigrationController {
+public class MigrationRestController {
 
    private final LegacyCustomerService service;
 
@@ -35,7 +35,7 @@ public class MigrationController {
     *
     * @param service
     */
-   public MigrationController(final LegacyCustomerService service) {
+   public MigrationRestController(final LegacyCustomerService service) {
       this.service = service;
    }
 

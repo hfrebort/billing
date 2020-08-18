@@ -33,6 +33,9 @@ public class CustomerMapper implements Mapper<Customer> {
       customer.setCompany(resultSet.getString("Firma"));
       customer.setFirstName(resultSet.getString("KontaktVorname"));
       customer.setLastName(resultSet.getString("KontaktNachname"));
+      customer.setCity(resultSet.getString("Ort"));
+      customer.setZipCode(resultSet.getString("Postleitzahl"));
+      customer.setAddress(resultSet.getString("Adresse"));
       // TODO map all other attributes
       return customer;
    }
