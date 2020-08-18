@@ -18,17 +18,22 @@ import at.frebort.billing.backend.dto.Customer;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Component;
+
 /**
+ * The Class CustomerMapper.
+ *
  * @author hfrebort
  * @version 16.08.2020
  */
+@Component
 public class CustomerMapper implements Mapper<Customer> {
 
    @Override
    public Customer map(final ResultSet resultSet) throws SQLException {
       final Customer customer = new Customer();
-      customer.setCustomerId(resultSet.getInt("PKkunde"));
-      //      customer.setCustomerId(resultSet.getInt("Kundennummer"));
+      // TODO verify if PKkunde has to be used customer.setCustomerId(resultSet.getInt("PKkunde"))
+      customer.setCustomerId(resultSet.getInt("Kundennummer"));
       customer.setCompany(resultSet.getString("Firma"));
       customer.setFirstName(resultSet.getString("KontaktVorname"));
       customer.setLastName(resultSet.getString("KontaktNachname"));
