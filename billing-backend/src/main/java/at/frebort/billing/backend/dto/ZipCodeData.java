@@ -13,24 +13,31 @@
  *******************************************************************************/
 package at.frebort.billing.backend.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  * The Class ZipCodeData.
  *
  * @author hfrebort
  * @version 18.08.2020
  */
-@Entity
 public class ZipCodeData {
 
    /** The zip code. */
-   @Id
    private String zipCode;
 
    /** The city. */
    private String city;
+
+   /**
+    * Constructor.
+    *
+    * @param zipCode the zip code
+    * @param city the city
+    */
+   public ZipCodeData(final String zipCode, final String city) {
+      super();
+      this.zipCode = zipCode;
+      this.city = city;
+   }
 
    /**
     * Gets the zip code.
@@ -66,6 +73,11 @@ public class ZipCodeData {
     */
    public void setCity(final String city) {
       this.city = city;
+   }
+
+   @Override
+   public String toString() {
+      return "ZipCodeData [zipCode=" + this.zipCode + ", city=" + this.city + "]";
    }
 
 }
