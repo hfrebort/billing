@@ -14,4 +14,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
    @Query(value = "SELECT distinct new at.frebort.billing.backend.dto.ZipCodeData(c.zipCode, c.city) FROM Customer c")
    List<ZipCodeData> findZipCodeAndCity();
+
+   @Query(value = "SELECT max(c.customerId) FROM Customer c")
+   Integer findMaxCustomerId();
 }

@@ -37,4 +37,14 @@ public class CustomerService {
    public void insertCustomers(final List<Customer> customers) {
       this.repository.saveAll(customers);
    }
+
+   /**
+    * Gets the next customer id.
+    *
+    * @return the next customer id
+    */
+   public Integer getNextCustomerId() {
+      final Integer maxCustomerId = this.repository.findMaxCustomerId();
+      return maxCustomerId + 1;
+   }
 }

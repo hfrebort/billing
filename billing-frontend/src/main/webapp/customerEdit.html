@@ -1,39 +1,112 @@
 <div class="row">
 	<div class="col-sm">
-		KD-Nummer: <input id="customerId" class="form-control" type="text" data-ng-model="customer.customerId" placeholder="Kundennummer">
-		Vorname: <input id="firstName" class="form-control" type="text"	data-ng-model="customer.firstName" placeholder="Vorname">
-		Nachname: <input id="lastName" class="form-control" type="text"	data-ng-model="customer.lastName" placeholder="Nachname">
-		Firma: * <input id="company" class="form-control" type="text" data-ng-model="customer.company" placeholder="Firma"	data-ng-required="true"> 
-		Firmenzusatz: <input id="companyExtension" class="form-control" type="text"	data-ng-model="customer.companyExtension" placeholder="Firmenzusatz">
-		Adresse: * <input id="address" class="form-control" type="text"	data-ng-model="customer.address" placeholder="Adresse" data-ng-required="true"> 
-		Postleitzahl: * <input id="zipCode"	class="form-control" type="text" data-ng-model="customer.zipCode" placeholder="PLZ" data-ng-required="true">
-		<input list="allzipcodes">
-		<datalist id="allzipcodes" >
-			<option data-ng-repeat="zip in zipCodes">{{zip.code}}, {{zip.city}}</option>
-		</datalist> 
-		Ort: * <input id="city" class="form-control" type="text" data-ng-model="customer.city" placeholder="Ort" data-ng-required="true"> 
-		Land/Region: <input id="region"	class="form-control" type="text" data-ng-model="customer.region" placeholder="Land/Region"> 
-		Anrede: <input id="salutation" class="form-control" type="text" data-ng-model="customer.salutation"	placeholder="Anrede"> 
-		Titel: <input id="title" class="form-control" type="text" data-ng-model="customer.title" placeholder="Titel">
+		<div class="row">
+			<div class="col-sm-3">
+				<label for="customerId">KNr:</label>
+				<input id="customerId" class="form-control" type="text" data-ng-model="customer.customerId" placeholder="Kundennummer" />
+			</div>
+			<div class="col-sm-4">
+				<label for="firstName">Vorname:</label>
+				<input id="firstName" class="form-control" type="text"	data-ng-model="customer.firstName" placeholder="Vorname" />
+			</div>
+			<div class="col-sm-5">
+				<label for="lastName">Nachname:</label>
+			    <input id="lastName" class="form-control" type="text"	data-ng-model="customer.lastName" placeholder="Nachname">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8">
+				<label for="company">Firma: *</label>
+				<input id="company" class="form-control" type="text" data-ng-model="customer.company" placeholder="Firma" data-ng-required="true"> 
+			</div>
+			<div class="col-sm-4">
+				<label for="companyExtension">Firmenzusatz:</label>
+		 		<input id="companyExtension" class="form-control" type="text"	data-ng-model="customer.companyExtension" placeholder="Firmenzusatz">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<label for="zipcode">PLZ: *</label>
+				<input id="zipcode" list="allzipcodes" class="form-control" type="text" data-ng-model="customer.zipCode" placeholder="PLZ" data-ng-blur="ctrl.fillCity()">
+				<datalist id="allzipcodes" >
+					<option data-ng-repeat="zip in zipCodes | orderBy:'zipCode'" value="{{zip.zipCode}}">{{zip.city}}</option>
+				</datalist> 
+			</div>
+			<div class="col-sm-9">
+				<label for="city">Ort: *</label>
+				<input id="city" class="form-control" type="text" data-ng-model="customer.city" placeholder="Ort" data-ng-required="true"> 
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="address">Adresse: *</label>
+				<input id="address" class="form-control" type="text" data-ng-model="customer.address" placeholder="Adresse" data-ng-required="true"> 
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<label for="salutation">Anrede: </label>
+				<input id="salutation" class="form-control" type="text" data-ng-model="customer.salutation"	placeholder="Anrede"> 
+			</div>
+			<div class="col-sm-6">
+				<label for="title">Titel: </label>
+				<input id="title" class="form-control" type="text" data-ng-model="customer.title" placeholder="Titel">
+			</div>
+		</div>
 	</div>
 	<div class="col-sm">
-		Telefon: <input id="phone" class="form-control" type="text"	data-ng-model="customer.phone" placeholder="Tel"> 
-		Mobilnummer	1: <input id="mobile" class="form-control" type="text" data-ng-model="customer.mobile" placeholder="Mobil1">
-		Mobilnummer 2: <input id="mobileAlternative" class="form-control" type="text" data-ng-model="customer.mobileAlternative" placeholder="Mobil2"> 
-		Email-Adresse 1: <input id="email" class="form-control" type="text" data-ng-model="customer.email" placeholder="Email1"> 
-		Email-Adresse 2: <input id="emailAlternative" class="form-control" type="text" data-ng-model="customer.emailAlternative" placeholder="Email2">
-		Homepage: <input id="website" class="form-control" type="text" data-ng-model="customer.website" placeholder="Homepage">
-		Versicherung: <input id="insurance" class="form-control" type="text" data-ng-model="customer.insurace" placeholder="Versicherung">
-		UID-Nummer: <input id="vatNumber" class="form-control" type="text" data-ng-model="customer.vatNumber" placeholder="UID-Nummer">
-		Zahlungsziel: <input id="paymentDate" class="form-control" type="text" data-ng-model="customer.paymentDate" placeholder="Zahlungsziel">
-		Mahnsperre: 
-		<select id="reminderLock" class="form-control">
-			<option selected>Kunde wird gemahnt</option>
-			<option>Kunde wird nicht gemahnt</option>
-		</select> 
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox" data-ng-model="customer.checkboxModel" id="archived">
-   			<label class="form-check-label" for="archived">Archiviert</label>
+		<div class="row">
+			<div class="col-sm-6">
+				<label for="phone">Telefon: </label>
+				<input id="phone" class="form-control" type="text"	data-ng-model="customer.phone" placeholder="Tel"> 
+			</div>
+			<div class="col-sm-6">
+				<label for="website">Homepage: </label>
+				<input id="website" class="form-control" type="text" data-ng-model="customer.website" placeholder="Homepage">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<label for="mobile">Mobilnummer	1:</label>
+				<input id="mobile" class="form-control" type="text" data-ng-model="customer.mobile" placeholder="Mobil1">
+			</div>
+			<div class="col-sm-6">
+				<label for="mobileAlternative">Mobilnummer 2:</label>
+				<input id="mobileAlternative" class="form-control" type="text" data-ng-model="customer.mobileAlternative" placeholder="Mobil2"> 
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<label for="email">Email-Adresse 1:</label>
+				<input id="email" class="form-control" type="text" data-ng-model="customer.email" placeholder="Email1"> 
+			</div>
+			<div class="col-sm-6">
+				<label for="emailAlternative">Email-Adresse 2:</label>
+				<input id="emailAlternative" class="form-control" type="text" data-ng-model="customer.emailAlternative" placeholder="Email2">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5">
+				<label for="insurance">Versicherung: </label>
+				<input id="insurance" class="form-control" type="text" data-ng-model="customer.insurance" placeholder="Versicherung">
+			</div>
+			<div class="col-sm-7">
+				<label for="vatNumber">UID-Nummer: </label>
+				<input id="vatNumber" class="form-control" type="text" data-ng-model="customer.vatNumber" placeholder="UID-Nummer">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5">
+				<label for="paymentDate">Zahlungsziel: </label>
+				<input id="paymentDate" class="form-control" type="text" data-ng-model="customer.paymentDate" placeholder="Zahlungsziel">
+			</div>
+			<div class="col-sm-7">
+				<label for="reminderLock">Mahnsperre: </label>
+				<select id="reminderLock" class="form-control" data-ng-model="customer.reminderLock">
+					<option selected="selected" value="0">Kunde wird nicht gemahnt</option>
+					<option value="1">Kunde wird gemahnt</option>
+				</select> 
+			</div>
 		</div>
 	</div>
 </div>
@@ -42,14 +115,23 @@
 	<div class="col-sm">
 		<div class="form-group">
 			<label for="exampleFormControlTextarea1">Bemerkungen:</label>
-			<textarea class="form-control" id="remark" rows="4"	data-ng-model="customer.remark" placeholder="Bemerkung"></textarea>
+			<textarea class="form-control" id="remark" rows="3"	data-ng-model="customer.remark" placeholder="Bemerkung"></textarea>
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-sm">
-		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.insert()">Einfügen</button>
-		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.update()">Speichern</button>
+		<div class="form-group form-check">
+			<input id="archived" class="form-check-input" type="checkbox" data-ng-model="customer.checkboxModel" />
+   			<label for="archived" class="form-check-label">Archiviert</label>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm">
+		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.insert()" data-ng-show="mode === 'insert'">Einfügen</button>
+		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.update()" data-ng-show="mode === 'update'">Speichern</button>
 	</div>
 </div>
