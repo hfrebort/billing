@@ -43,6 +43,13 @@ angular.module('billing')
 	        Object.assign($scope.customer, defaultCustomer);
 		});
 	};
+	this.fillCompany = function() {
+		var firstName = $scope.customer.firstName !== undefined ? $scope.customer.firstName : '';
+		var lastName = $scope.customer.lastName !== undefined ? $scope.customer.lastName : '';
+		if ($scope.customer.company !== firstName && $scope.customer.company !== lastName) {
+			$scope.customer.company = firstName + ' ' + lastName; 
+		}
+	};
 	this.getZipCodes = function() {
 		$http.get(endpointUrls.zipCodes).then(function(response) {
 			$scope.zipCodes = response.data;
