@@ -38,10 +38,8 @@ angular.module('billing', ['ngRoute'])
     // CRUD functions 
 	this.get = function(customerId) {
 		$http.get('http://localhost:8080/customers/' + customerId).then(function(response) {
-	    	console.log("get: ", response);
 	        $scope.customer = response.data;
 		}, function(response) {
-	    	console.log("get failed: ", response);
 	        $scope.customer = {customerId: 1};
 		});
 	};

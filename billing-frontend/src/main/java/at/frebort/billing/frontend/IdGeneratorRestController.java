@@ -4,13 +4,15 @@ import at.frebort.billing.backend.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * The Class IdGeneratorRestController mainly generates IDs of customers, invoices and all other entities.
  */
-@RestController("/generate")
+@RestController
+@RequestMapping(path = "/generate")
 public class IdGeneratorRestController {
 
    /** The customer service. */
