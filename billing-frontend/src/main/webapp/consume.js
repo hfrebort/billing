@@ -20,7 +20,7 @@ angular.module('billing', ['ngRoute'])
     	redirectTo: '/customerOverview'
     });
 }])
-.controller('CustomerOverviewController', function($scope, $http, $location) {
+.controller('CustomerOverviewController', function($scope, $http) {
     
     this.getAll = function() { 
 		$http.get('http://localhost:8080/customers').then(function(response) {
@@ -33,8 +33,14 @@ angular.module('billing', ['ngRoute'])
     this.getAll();
 
 })
-.controller('CustomerEditController', function($scope, $http, $location, $routeParams) {
+.controller('CustomerEditController', function($scope, $http, $routeParams) {
     
+	this.getZipCodes = function() {
+		$http.get('http://localhost:8080/zipcodes').then(function(response) {
+	    	console.log("getZipCodes: ", response);
+	    	$scope.zipCodes = response.data;
+		});
+	};
 	this.get = function(customerId) {
 		$http.get('http://localhost:8080/customers/' + customerId).then(function(response) {
 	    	console.log("get: ", response);
@@ -59,19 +65,23 @@ angular.module('billing', ['ngRoute'])
 		$http.put('http://localhost:8080/customers', $scope.customer).then(function(response) {
 	    	console.log("saved: ", response);
 	    });
-		
 	};
 
+	this.fillCity = function() {
+		if ($scope.customer.zipCode !== undefined) {
+			$scope.customer.city = $scope.zipCodes.filter(e => e.zipCode === $scope.customer.zipCode).map(e => e.city);			
+		}
+	};
+	
     console.log("initialize edit controller");
     if ($routeParams.customerId === 'new') {
         $scope.customer = {customerId: 111};
+        $scope.mode = 'insert';
     } else {
     	this.get($routeParams.customerId);
+    	$scope.mode = 'update';
     }
-    $scope.zipCodes = [
-    		{code: "2483", city: "Ebreichsdorf"},
-    		{code: "9999", city: "Unknown"}
-    ];
+    this.getZipCodes();
 })
 .controller('MigrationController', function($scope, $http) {
 	
@@ -82,7 +92,6 @@ angular.module('billing', ['ngRoute'])
 		});
 	};
 	
-	console.log("initialize migration controller");
 	this.migrate();
 	
 });
