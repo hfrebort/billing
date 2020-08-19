@@ -34,13 +34,14 @@ angular.module('billing', ['ngRoute'])
 
 })
 .controller('CustomerEditController', function($scope, $http, $routeParams) {
+	var defaultCustomer = {paymentDate:28, reminderLock: "0"};
 	
     // CRUD functions 
 	this.get = function(customerId) {
 		$http.get('http://localhost:8080/customers/' + customerId).then(function(response) {
 	        $scope.customer = response.data;
 		}, function(response) {
-	        $scope.customer = {customerId: 1};
+	        Object.assign($scope.customer, defaultCustomer);
 		});
 	};
 	this.insert = function() {
@@ -58,8 +59,9 @@ angular.module('billing', ['ngRoute'])
 	this.determineNextCustomerId = function() {
 		$http.get('http://localhost:8080/generate/customerid').then(function(response) {
 			$scope.customer = {customerId: response.data};
+	        Object.assign($scope.customer, defaultCustomer);
 		}, function(response) {
-			$scope.customer = {customerId: 1};
+	        Object.assign($scope.customer, defaultCustomer);
 		});
 	};
 	this.getZipCodes = function() {
