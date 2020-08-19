@@ -34,13 +34,8 @@ angular.module('billing', ['ngRoute'])
 
 })
 .controller('CustomerEditController', function($scope, $http, $routeParams) {
-    
-	this.getZipCodes = function() {
-		$http.get('http://localhost:8080/zipcodes').then(function(response) {
-	    	console.log("getZipCodes: ", response);
-	    	$scope.zipCodes = response.data;
-		});
-	};
+	
+    // CRUD functions 
 	this.get = function(customerId) {
 		$http.get('http://localhost:8080/customers/' + customerId).then(function(response) {
 	    	console.log("get: ", response);
@@ -51,35 +46,42 @@ angular.module('billing', ['ngRoute'])
 		});
 	};
 	this.insert = function() {
-		console.log("insert customer: ", $scope.customer);
-		
 		$http.post('http://localhost:8080/customers', $scope.customer).then(function(response) {
 	    	console.log("saved: ", response);
 	    });
-		
 	};
-	
 	this.update = function() {
-		console.log("update customer: ", $scope.customer);
-		
 		$http.put('http://localhost:8080/customers', $scope.customer).then(function(response) {
 	    	console.log("saved: ", response);
 	    });
 	};
-
+	
+	// functions to improve usability
+	this.determineNextCustomerId = function() {
+		$http.get('http://localhost:8080/generate/customerid').then(function(response) {
+			$scope.customer = {customerId: response.data};
+		}, function(response) {
+			$scope.customer = {customerId: 1};
+		});
+	};
+	this.getZipCodes = function() {
+		$http.get('http://localhost:8080/zipcodes').then(function(response) {
+			$scope.zipCodes = response.data;
+		});
+	};
 	this.fillCity = function() {
 		if ($scope.customer.zipCode !== undefined) {
 			$scope.customer.city = $scope.zipCodes.filter(e => e.zipCode === $scope.customer.zipCode).map(e => e.city);			
 		}
 	};
 	
-    console.log("initialize edit controller");
+	// initialization of customer edit
     if ($routeParams.customerId === 'new') {
-        $scope.customer = {customerId: 111};
-        $scope.mode = 'insert';
+    	$scope.mode = 'insert';
+    	this.determineNextCustomerId();
     } else {
-    	this.get($routeParams.customerId);
     	$scope.mode = 'update';
+    	this.get($routeParams.customerId);
     }
     this.getZipCodes();
 })
