@@ -30,7 +30,7 @@ angular.module('billing', ['ngRoute'])
 	};
 
     console.log("initialize overview controller");
-    this.getAll();
+    //this.getAll();
 
 })
 .controller('CustomerEditController', function($scope, $http, $routeParams) {
