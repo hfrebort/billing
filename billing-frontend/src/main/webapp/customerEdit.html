@@ -1,56 +1,67 @@
 <div class="row">
+	<div class="col-sm-9">
+		<h2>Kunden verwalten</h2>
+	</div>
+	<div class="col-sm-3">
+		<h3>KNr: {{customer.customerId}}</h3>
+	</div>
+</div>
+
+<form name="customerForm" data-ng-submit="customerForm.$valid">
+<div class="row">
 	<div class="col-sm">
 		<div class="row">
-			<div class="col-sm-3">
-				<label for="customerId">KNr:</label>
-				<input id="customerId" class="form-control" type="text" data-ng-model="customer.customerId" placeholder="Kundennummer" />
-			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-12">
 				<label for="firstName">Vorname:</label>
-				<input id="firstName" class="form-control" type="text"	data-ng-model="customer.firstName" placeholder="Vorname" />
-			</div>
-			<div class="col-sm-5">
-				<label for="lastName">Nachname:</label>
-			    <input id="lastName" class="form-control" type="text"	data-ng-model="customer.lastName" placeholder="Nachname">
+				<input id="firstName" class="form-control form-control-sm" type="text" data-ng-model="customer.firstName" placeholder="Vorname" data-ng-blur="ctrl.fillCompany()" />
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-8">
-				<label for="company">Firma: *</label>
-				<input id="company" class="form-control" type="text" data-ng-model="customer.company" placeholder="Firma" data-ng-required="true"> 
+			<div class="col-sm-12">
+				<label for="lastName">Nachname:</label>
+			    <input id="lastName" class="form-control form-control-sm" type="text" data-ng-model="customer.lastName" placeholder="Nachname" data-ng-blur="ctrl.fillCompany()">
 			</div>
-			<div class="col-sm-4">
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="company" class="text-primary">Firma: *</label>
+				<input id="company" class="form-control form-control-sm" type="text" data-ng-model="customer.company" placeholder="Firma" data-ng-required="true"> 
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
 				<label for="companyExtension">Firmenzusatz:</label>
-		 		<input id="companyExtension" class="form-control" type="text"	data-ng-model="customer.companyExtension" placeholder="Firmenzusatz">
+		 		<input id="companyExtension" class="form-control form-control-sm" type="text" data-ng-model="customer.companyExtension" placeholder="Firmenzusatz">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="address">Adresse:</label>
+				<input id="address" class="form-control form-control-sm" type="text" data-ng-model="customer.address" placeholder="Adresse"> 
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-3">
-				<label for="zipcode">PLZ: *</label>
-				<input id="zipcode" list="allzipcodes" class="form-control" type="text" data-ng-model="customer.zipCode" placeholder="PLZ" data-ng-blur="ctrl.fillCity()">
+				<label class="text-primary" for="zipcode">PLZ: *</label>
+				<input id="zipindex" list="allzipcodes" type="hidden" data-ng-model="zipCodeIndex" />
+				<input id="zipcode" list="allzipcodes" class="form-control form-control-sm" type="text" data-ng-model="customer.zipCode" placeholder="PLZ" data-ng-required="true" data-ng-blur="ctrl.fillCity()">
 				<datalist id="allzipcodes" >
 					<option data-ng-repeat="zip in zipCodes | orderBy:'zipCode'" value="{{zip.zipCode}}">{{zip.city}}</option>
 				</datalist> 
 			</div>
 			<div class="col-sm-9">
-				<label for="city">Ort: *</label>
-				<input id="city" class="form-control" type="text" data-ng-model="customer.city" placeholder="Ort" data-ng-required="true"> 
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<label for="address">Adresse: *</label>
-				<input id="address" class="form-control" type="text" data-ng-model="customer.address" placeholder="Adresse" data-ng-required="true"> 
+				<label class="text-primary" for="city">Ort: *</label>
+				<input id="city" class="form-control form-control-sm" type="text" data-ng-model="customer.city" placeholder="Ort" data-ng-required="true"> 
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
 				<label for="salutation">Anrede: </label>
-				<input id="salutation" class="form-control" type="text" data-ng-model="customer.salutation"	placeholder="Anrede"> 
+				<input id="salutation" class="form-control form-control-sm" type="text" data-ng-model="customer.salutation"	placeholder="Anrede"> 
 			</div>
 			<div class="col-sm-6">
 				<label for="title">Titel: </label>
-				<input id="title" class="form-control" type="text" data-ng-model="customer.title" placeholder="Titel">
+				<input id="title" class="form-control form-control-sm" type="text" data-ng-model="customer.title" placeholder="Titel">
 			</div>
 		</div>
 	</div>
@@ -58,51 +69,57 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<label for="phone">Telefon: </label>
-				<input id="phone" class="form-control" type="text"	data-ng-model="customer.phone" placeholder="Tel"> 
+				<input id="phone" class="form-control form-control-sm" type="text"	data-ng-model="customer.phone" placeholder="Tel"> 
 			</div>
 			<div class="col-sm-6">
-				<label for="website">Homepage: </label>
-				<input id="website" class="form-control" type="text" data-ng-model="customer.website" placeholder="Homepage">
+				<label for="fax">Fax: </label>
+				<input id="fax" class="form-control form-control-sm" type="text" data-ng-model="customer.fax" placeholder="Fax">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
 				<label for="mobile">Mobilnummer	1:</label>
-				<input id="mobile" class="form-control" type="text" data-ng-model="customer.mobile" placeholder="Mobil1">
+				<input id="mobile" class="form-control form-control-sm" type="text" data-ng-model="customer.mobile" placeholder="Mobil1">
 			</div>
 			<div class="col-sm-6">
 				<label for="mobileAlternative">Mobilnummer 2:</label>
-				<input id="mobileAlternative" class="form-control" type="text" data-ng-model="customer.mobileAlternative" placeholder="Mobil2"> 
+				<input id="mobileAlternative" class="form-control form-control-sm" type="text" data-ng-model="customer.mobileAlternative" placeholder="Mobil2"> 
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
 				<label for="email">Email-Adresse 1:</label>
-				<input id="email" class="form-control" type="text" data-ng-model="customer.email" placeholder="Email1"> 
+				<input id="email" class="form-control form-control-sm" type="text" data-ng-model="customer.email" placeholder="Email1"> 
 			</div>
 			<div class="col-sm-6">
 				<label for="emailAlternative">Email-Adresse 2:</label>
-				<input id="emailAlternative" class="form-control" type="text" data-ng-model="customer.emailAlternative" placeholder="Email2">
+				<input id="emailAlternative" class="form-control form-control-sm" type="text" data-ng-model="customer.emailAlternative" placeholder="Email2">
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-5">
+			<div class="col-sm-12">
 				<label for="insurance">Versicherung: </label>
-				<input id="insurance" class="form-control" type="text" data-ng-model="customer.insurance" placeholder="Versicherung">
+				<input id="insurance" class="form-control form-control-sm" type="text" data-ng-model="customer.insurance" placeholder="Versicherung">
 			</div>
-			<div class="col-sm-7">
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
 				<label for="vatNumber">UID-Nummer: </label>
-				<input id="vatNumber" class="form-control" type="text" data-ng-model="customer.vatNumber" placeholder="UID-Nummer">
+				<input id="vatNumber" class="form-control form-control-sm" type="text" data-ng-model="customer.vatNumber" placeholder="UID-Nummer">
+			</div>
+			<div class="col-sm-6">
+				<label for="website">Homepage: </label>
+				<input id="website" class="form-control form-control-sm" type="text" data-ng-model="customer.website" placeholder="Homepage">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-5">
 				<label for="paymentDate">Zahlungsziel: </label>
-				<input id="paymentDate" class="form-control" type="text" data-ng-model="customer.paymentDate" placeholder="Zahlungsziel">
+				<input id="paymentDate" class="form-control form-control-sm" type="text" data-ng-model="customer.paymentDate" placeholder="Zahlungsziel">
 			</div>
 			<div class="col-sm-7">
 				<label for="reminderLock">Mahnsperre: </label>
-				<select id="reminderLock" class="form-control" data-ng-model="customer.reminderLock">
+				<select id="reminderLock" class="form-control form-control-sm" data-ng-model="customer.reminderLock">
 					<option selected="selected" value="0">Kunde wird nicht gemahnt</option>
 					<option value="1">Kunde wird gemahnt</option>
 				</select> 
@@ -115,7 +132,7 @@
 	<div class="col-sm">
 		<div class="form-group">
 			<label for="exampleFormControlTextarea1">Bemerkungen:</label>
-			<textarea class="form-control" id="remark" rows="3"	data-ng-model="customer.remark" placeholder="Bemerkung"></textarea>
+			<textarea class="form-control form-control-sm" id="remark" rows="3"	data-ng-model="customer.remark" placeholder="Bemerkung"></textarea>
 		</div>
 	</div>
 </div>
@@ -131,8 +148,8 @@
 
 <div class="row">
 	<div class="col-sm">
-		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.insert()" data-ng-show="mode === 'insert'">Einf&uumlgen</button>
-		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.update()" data-ng-show="mode === 'update'">Speichern</button>
+		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.insert()" data-ng-show="mode === 'insert'" data-ng-disabled="customerForm.$invalid">Einfügen</button>
+		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.update()" data-ng-show="mode === 'update'" data-ng-disabled="customerForm.$invalid">Speichern</button>
 	</div>
 </div>
- 
+</form>

@@ -14,7 +14,7 @@ public class Customer {
    private String lastName;
 
    private String company, companyExtension, address, zipCode, city, region,
-         salutation, title, phone, mobile, mobileAlternative,
+         salutation, title, phone, fax, mobile, mobileAlternative,
          email, emailAlternative, website, insurance, vatNumber,
          paymentDate, reminderLock, archived, remark;
 
@@ -112,6 +112,14 @@ public class Customer {
 
    public void setPhone(final String phone) {
       this.phone = phone;
+   }
+
+   public String getFax() {
+      return this.fax;
+   }
+
+   public void setFax(final String fax) {
+      this.fax = fax;
    }
 
    public String getMobile() {
