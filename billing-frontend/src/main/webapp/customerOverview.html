@@ -1,22 +1,92 @@
 <div class="row">
 	<div class="col-sm">
-		<div class="table-responsive">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>Kundennummer</th>
-						<th>Vorname</th>
-						<th>Nachname</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr data-ng-repeat="customer in customers">
-						<td data-title='Kundennummer'><a href="#!/customerEdit/{{customer.customerId}}">{{customer.customerId}}</a></td>
-						<td data-title='Vorname'>{{customer.firstName}}</td>
-						<td data-title='Nachname'>{{customer.lastName}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<h2>Kunden&uuml;bersicht</h2>
+	</div>
+</div>
+<div class="row align-items-end">
+	<div class="col-sm-10">
+		<div class="row">
+		  	<div class="col-sm-3">
+				<label for="firstName">Vorname:</label>
+				<input id="firstName" class="form-control form-control-sm" type="text"	data-ng-model="customer.firstName" placeholder="Vorname" />
+			</div>
+			<div class="col-sm-3">	
+				<label for="lastName">Nachname:</label>
+	    		<input id="lastName" class="form-control form-control-sm" type="text"	data-ng-model="customer.lastName" placeholder="Nachname">
+			</div>
+			<div class="col-sm-3">
+				<label for="company">Firma: </label>
+				<input id="company" class="form-control form-control-sm" type="text" data-ng-model="customer.company" placeholder="Firma" data-ng-required="true"> 
+			</div>	
+			<div class="col-sm-3">
+				<label for="customerId">KNr:</label>
+				<input id="customerId" class="form-control form-control-sm" type="text" data-ng-model="customer.customerId" placeholder="Kundennummer" />
+			</div>	
+	    </div>
+	    <div class="row">
+	    	<div class="col-sm-3">
+				<label for="zipcode">PLZ: </label>
+				<input id="zipcode" list="allzipcodes" class="form-control form-control-sm" type="text" data-ng-model="customer.zipCode" placeholder="PLZ" data-ng-blur="ctrl.fillCity()">
+				<datalist id="allzipcodes" >
+					<option data-ng-repeat="zip in zipCodes | orderBy:'zipCode'" value="{{zip.zipCode}}">{{zip.city}}</option>
+				</datalist> 
+			</div>
+	    	<div class="col-sm-4">
+				<label for="city">Ort: </label>
+				<input id="city" class="form-control form-control-sm" type="text" data-ng-model="customer.city" placeholder="Ort" data-ng-required="true"> 
+			</div>
+	    	<div class="col-sm-5">
+				<label for="address">Adresse: </label>
+				<input id="address" class="form-control form-control-sm" type="text" data-ng-model="customer.address" placeholder="Adresse" data-ng-required="true"> 
+			</div>
+	    </div>
+	</div>
+	<div class="col-sm-2">
+		<button class="btn btn-primary btn-sm btn-block" type="submit" data-ng-click="ctrl.getAll()" >Neu</button>
+		<button class="btn btn-primary btn-sm btn-block" type="submit" data-ng-click="ctrl.getAll()" >Suchen</button>
+		<button class="btn btn-primary btn-sm btn-block" type="submit" data-ng-click="ctrl.getAll()" >Massen&auml;nderung</button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm">&nbsp;</div>
+</div>
+				
+<div class="row">
+	<div class="col-sm">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>KNr</th>
+					<th>Anrede</th>
+					<th>Titel</th>
+					<th>Vorname</th>
+					<th>Nachname</th>
+					<th>Firma</th>
+					<th>Adresse</th>
+					<th>PLZ</th>
+					<th>Ort</th>
+					<th>Telefon</th>
+					<th>Mobil1</th>
+					<th>Versicherung</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="customer in customers">
+					<td data-title='Kundennummer'><a href="#!/customerEdit/{{customer.customerId}}">{{customer.customerId}}</a></td>
+					<td data-title='Anrede'>{{customer.salutation}}</td>
+					<td data-title='Titel'>{{customer.title}}</td>
+					<td data-title='Vorname'>{{customer.firstName}}</td>
+					<td data-title='Nachname'>{{customer.lastName}}</td>
+					<td data-title='Firma'>{{customer.company}}</td>
+					<td data-title='Adresse'>{{customer.address}}</td>
+					<td data-title='PLZ'>{{customer.zipCode}}</td>
+					<td data-title='Ort'>{{customer.city}}</td>
+					<td data-title='Telefon'>{{customer.phone}}</td>
+					<td data-title='Mobil1'>{{customer.mobile}}</td>
+					<td data-title='Versicherung'>{{customer.insurance}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

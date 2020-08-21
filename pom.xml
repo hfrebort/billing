@@ -115,7 +115,4 @@
 		</dependencies>
 	</dependencyManagement>
 
-
-	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
-
 </project>
