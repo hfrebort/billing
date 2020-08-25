@@ -1,0 +1,43 @@
+<form name="positionForm" data-ng-submit="positionForm.$valid">
+<input id="positionId" type="hidden" data-ng-model="position.positionId" value="33" />
+<div class="row">
+	<div class="col-sm">
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="name">Name:</label>
+				<input id="name" class="form-control form-control-sm" type="text" data-ng-model="position.name" data-ng-required="true" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="price">Preis:</label>
+			    <input id="price" class="form-control form-control-sm" type="text" data-ng-model="position.price" data-ng-required="true" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="tax" class="text-primary">Mwst:</label>
+				<input id="tax" class="form-control form-control-sm" type="text" data-ng-model="position.tax"  data-ng-required="true" /> 
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm">
+		<button class="btn btn-primary" type="submit" data-ng-click="ctrl.insert()" data-ng-disabled="positionForm.$invalid">Einfügen</button>
+	</div>
+</div>
+
+</form>
+
+<div class="row">
+	<div class="col-sm">
+		<div data-ng-repeat="position in positions">
+			{{position.positionId}}, 
+			{{position.name}}, 
+			{{position.price}}, 
+			{{position.tax}}
+		</div>
+	</div>
+</div>

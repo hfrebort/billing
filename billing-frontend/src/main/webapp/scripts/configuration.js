@@ -11,6 +11,11 @@ angular.module('billing', ['ngRoute'])
         controller: 'CustomerEditController',
         controllerAs: 'ctrl'
     })
+    .when("/position", {
+    	templateUrl: '/position.html',
+    	controller: 'PositionController',
+    	controllerAs: 'ctrl'
+    })
     .when("/migrate", {
     	templateUrl: '/migration.html',
     	controller: 'MigrationController',
