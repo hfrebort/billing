@@ -11,6 +11,16 @@ angular.module('billing', ['ngRoute'])
         controller: 'CustomerEditController',
         controllerAs: 'ctrl'
     })
+    .when('/invoiceOverview',{
+    	templateUrl: '/invoiceOverview.html',
+    	controller: 'InvoiceOverviewController',
+    	controllerAs: 'ctrl'
+    })
+    .when('/invoiceEdit/:invoiceId',{
+    	templateUrl: '/invoiceEdit.html',
+    	controller: 'InvoiceEditController',
+    	controllerAs: 'ctrl'
+    })
     .when("/migrate", {
     	templateUrl: '/migration.html',
     	controller: 'MigrationController',
